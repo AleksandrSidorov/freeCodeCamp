@@ -14,7 +14,11 @@ Array.join()
 */
 
 function replace(str, before, after) {
-  return str;
+  if (before[0] === before[0].toUpperCase()) {
+    after = aftr[0].toUpperCase() + after.slice(1);
+  }
+  var newStr = str.replace(before, after);
+  return newStr;
 }
 
 replace("A quick brown fox jumped over the lazy dog", "jumped", "leaped");
