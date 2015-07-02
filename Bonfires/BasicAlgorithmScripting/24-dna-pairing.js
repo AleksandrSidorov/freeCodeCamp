@@ -10,7 +10,30 @@ String.split()
 */
 
 function pair(str) {
- return str;
+  var strArr = str.split('');
+  for (var i in strArr) {
+    switch(strArr[i]) {
+      case 'A':
+        strArr[i] += 'T';
+        strArr[i] = strArr[i].split('');
+        break;
+      case 'T':
+        strArr[i] += 'A';
+        strArr[i] = strArr[i].split('');
+        break;
+      case 'C':
+        strArr[i] += 'G';
+        strArr[i] = strArr[i].split('');
+        break;
+      case 'G':
+        strArr[i] += 'C';
+        strArr[i] = strArr[i].split('');
+        break;
+      default:
+        break;
+    }
+  }
+ return strArr;
 }
 
 pair("GCG");
