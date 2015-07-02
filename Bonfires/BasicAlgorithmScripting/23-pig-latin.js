@@ -26,7 +26,6 @@ function translate(str) {
       }
     }
     wowelsArr.sort();
-    console.log(wowelsArr);
     firstWowel = wowelsArr[0];
     return str.slice(firstWowel) + str.slice(0,firstWowel) + 'ay';
   }
