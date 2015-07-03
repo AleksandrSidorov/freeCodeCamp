@@ -8,8 +8,8 @@ HTML Entities
 */
 
 function convert(str) {
-  // &colon;&rpar;
-  return str;
+  var result = str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&apos;");
+  return result;
 }
 
 convert('Dolce & Gabbana');
