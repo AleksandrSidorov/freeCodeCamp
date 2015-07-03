@@ -9,7 +9,19 @@ Remainder
 */
 
 function sumFibs(num) {
-  return num;
+  var i = 1;
+  var fib = [1];
+  while (i <= num) {
+    fib.push(i);
+    i += fib[fib.length -2];
+  }
+  console.log(fib);
+  var filtered = fib.filter(function (value) {
+    return value % 2 !== 0;
+  });
+  return filtered.reduce(function (a,b) {
+    return a + b;
+  });
 }
 
 sumFibs(4);
