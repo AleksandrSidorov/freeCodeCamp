@@ -9,8 +9,29 @@ For Loops
 Array.push()
 */
 
+function isPrime(number) {
+  var count = 0;
+  for (var i = 2; i <= number; i++) {
+    if (number % i === 0) {
+      count += 1;
+      if (count > 1) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 function sumPrimes(num) {
-  return num;
+  var resultArr = [];
+  for (var j = 2; j <= num; j++) {
+    if (isPrime(j)) {
+      resultArr.push(j);
+    }
+  }
+  return resultArr.reduce(function (a,b) {
+    return a + b;
+  });
 }
 
 sumPrimes(10);
