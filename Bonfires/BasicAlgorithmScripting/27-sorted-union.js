@@ -10,7 +10,16 @@ Array.reduce()
 */
 
 function unite(arr1, arr2, arr3) {
-  return arr1;
+  var result = [];
+  var flatArr = [arr1, arr2, arr3].reduce(function(a, b) {
+    return a.concat(b);
+  });
+  for (var i = 0; i < flatArr.length; i++) {
+    if (result.indexOf(flatArr[i]) === -1) {
+      result.push(flatArr[i]);
+    }
+  }
+  return result;
 }
 
 unite([1, 2, 3], [5, 2, 1, 4], [2, 1]);
