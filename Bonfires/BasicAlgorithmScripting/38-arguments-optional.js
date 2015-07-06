@@ -10,7 +10,25 @@ Arguments object
 */
 
 function add() {
-  return false;
+  var args = Array.prototype.slice.call(arguments);
+  if (typeof args[0] !== "number") {return undefined;}
+  if (args.length < 2) {
+    return function(y) {
+      if (typeof args[0] !== "number" || typeof y !== "number") {
+        return undefined;
+      } else {
+        return args[0] + y;
+      }
+    };
+  } else {
+    if (typeof args[0] !== "number"|| typeof args[1] !== "number") {
+      return undefined;
+    } else {
+      return args[0] + args[1];
+    }
+  }
+  console.log(args);
+  return undefined;
 }
 
 add(2,3);
