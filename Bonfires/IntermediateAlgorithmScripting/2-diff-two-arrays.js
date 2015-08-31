@@ -13,4 +13,18 @@ function diff(arr1, arr2) {
   return newArr;
 }
 
+// After some time
+function diff_v2(arr1, arr2) {
+  var newArr = [];
+  var unique1 = arr1.filter(function(a) {
+    return arr2.indexOf(a) < 0;
+  });
+  var unique2 = arr2.filter(function(a) {
+    return arr1.indexOf(a) < 0;
+  });
+  newArr = newArr.concat(unique1).concat(unique2);
+
+  return newArr;
+}
+
 diff([1, 2, 3, 5], [1, 2, 3, 4, 5]);
