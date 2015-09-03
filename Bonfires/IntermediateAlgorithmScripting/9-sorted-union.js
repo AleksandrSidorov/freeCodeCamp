@@ -22,4 +22,15 @@ function unite(arr1, arr2, arr3) {
   return result;
 }
 
+function uniteV2(arr1, arr2, arr3) {
+  var args = Array.prototype.slice.call(arguments);
+  var flatArr = args.reduce(function(x, y) {
+    return x.concat(y);
+  });
+  var result = flatArr.filter(function(a, i) {
+    return flatArr.indexOf(a) === i;
+  })
+  return result;
+}
+
 unite([1, 2, 3], [5, 2, 1, 4], [2, 1]);
