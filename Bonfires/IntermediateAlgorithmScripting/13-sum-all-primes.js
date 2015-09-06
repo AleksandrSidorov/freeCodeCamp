@@ -34,4 +34,20 @@ function sumPrimes(num) {
   });
 }
 
+function sumPrimesV2(num) {
+  var arrNum = Array.apply(null, Array(num)).map(function (_, i) {return i + 1;});
+  console.log(arrNum);
+  var arrPrimes = arrNum.filter(function(a) {
+    if(a < 2) return false;
+    for (var i = 2; i < a; i++) {
+      if(a % i === 0)
+        return false;
+    }
+    return true;
+  });
+  return arrPrimes.reduce(function(x, y) {
+    return x + y;
+  })
+}
+
 sumPrimes(10);
