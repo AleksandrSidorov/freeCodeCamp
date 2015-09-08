@@ -2,13 +2,17 @@
 <title>Random Quote Machine - JSONP Edition</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/master.css" media="screen" title="no title" charset="utf-8">
-<h1>Random Quote Machine</h1>
-<h3>JSONP Edition</h3>
-<p>Click the "New Quote" to view one</p>
-<div class="quote-block">
-  <p id="quote">Quote Text</p>
-  <p id="author">Author</p>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<div class="container">
+  <h1>Random Quote Here</h1>
+  <p>Push the "Get Quote" button to see the new quote</p>
+  <p>You can tweet this quote as well</p>
+  <blockquote>
+    <p id="quote">Quote</p>
+    <footer id="author">Author</p>
+   </blockquote>
+  <button class="btn btn-success" onclick="getQuote()">Get Quote</button>
+  <a id="b" class="twitter-share-button" data-size="large" data-count="none"
+  href="https://twitter.com/intent/tweet">Tweet</a>
 </div>
-<button onclick="getQuote()">New Quote</button>
 <script src="js/main-jsonp.js"></script>
