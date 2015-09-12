@@ -1,7 +1,81 @@
-#owm-icon {
+body {
+  /*background: url(https://drive.google.com/uc?export=download&id=0B41DdgPqKzCacHBEamd3Q2ZpYTA) no-repeat center center fixed;*/
+  background-size: cover;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body h1 {
+  text-align: center;
+  padding: 17px;
+}
+
+.jumbotron {
+  height: 100vh;
+}
+
+.container {
+  margin: auto;
+  max-width: 900px;
+}
+
+.blockHead {
+  background:  rgba(255, 153, 0, 0.7);
+}
+
+.blockHead p {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  margin: 0;
+  padding: 14px 20px;
+  text-transform: uppercase;
+}
+
+.blockBody {
+  background:  rgba(255, 153, 0, 0.4);
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.blockBody #location {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0;
+  padding: 14px 20px;
+}
+
+#owm-temp {
+  display: inline-block;
   font-size: 100px;
+  font-weight: 800;
+  margin: 0;
+  padding: 0 20px;
+  vertical-align: top;
+}
+
+.additional {
+  display: inline-block;
+  padding: 0 20px;
+  vertical-align: top;
+}
+
+.icon-block {
+  display: inline-block;
+  padding: 0 20px;
+}
+
+#owm-icon {
+  font-size: 80px;
+}
+
+.wind-block {
+  display: inline-block;
+  padding: 0 20px;
 }
 
 #owm-wind-icon {
-  font-size: 100px;
+  font-size: 80px;
 }
