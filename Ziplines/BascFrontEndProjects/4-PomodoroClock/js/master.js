@@ -36,24 +36,16 @@ function decreaseTimer() {
 function buttonHandler(item) {
   var period = item.parent().attr("id");
   var arrPos = period == "break" ? 0 : 1;
+  var adder = item.attr("class") == "minus" ? -1 : 1;
   if (clockIsRunning && sessionNow == arrPos) {
     stopTimer();
     clockIsRunning = false;
   }
-  if (item.attr("class") == "minus") {
-    brkSessArr[arrPos] = brkSessArr[arrPos] <= 0 ? 0 : brkSessArr[arrPos] - 1;
-    $("#" + period + "> span").html(brkSessArr[arrPos]);
-    if (sessionNow == arrPos) {
-      currentSeconds = brkSessArr[arrPos] * 60;
-      $(".timer-value").html(clockStyle(currentSeconds));
-    }
-  } else {
-    brkSessArr[arrPos] = brkSessArr[arrPos] >= 1440 ? 1440 : brkSessArr[arrPos] + 1;
-    $("#" + period + "> span").html(brkSessArr[arrPos]);
-    if (sessionNow == arrPos) {
-      currentSeconds = brkSessArr[arrPos] * 60;
-      $(".timer-value").html(clockStyle(currentSeconds));
-    }
+  brkSessArr[arrPos] = brkSessArr[arrPos] + adder < 0 || brkSessArr[arrPos] + adder > 1440 ? brkSessArr[arrPos] : brkSessArr[arrPos] + adder;
+  $("#" + period + "> span").html(brkSessArr[arrPos]);
+  if (sessionNow == arrPos) {
+    currentSeconds = brkSessArr[arrPos] * 60;
+    $(".timer-value").html(clockStyle(currentSeconds));
   }
 }
 
