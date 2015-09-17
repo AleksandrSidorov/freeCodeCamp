@@ -1,60 +1,71 @@
 var clockIsRunning = false;
 var sessionNow = true;
 var sessionNames = ['Break', 'Session'];
-var breakLength = 5;
-var sessionLength = 25;
-var pomoIntervalId;
-var currentSeconds, hours, minutes, seconds;
+var brkSessArr = [5, 25];
+var pomoIntervalId, currentSeconds, hours, minutes, seconds;
+
+function clockStyle(secVal) {
+  hrs = parseInt(secVal / 3600, 10);
+  min = parseInt(secVal / 60, 10);
+  sec = parseInt(secVal % 60, 10);
+  hrs = hrs == 0 ? "" : hrs + ":";
+  min = min < 10 ? "0" + min + ":" : min + ":";
+  sec = sec < 10 ? "0" + sec : sec;
+  return hrs + min + sec;
+}
 
 function startTimer() {
   pomoIntervalId = setInterval(decreaseTimer, 1000);
-}
-
-function decreaseTimer() {
-  if (currentSeconds <= 0) {
-    currentSeconds = sessionNow ? breakLength * 60 : sessionLength * 60;
-    sessionNow = !sessionNow;
-    $(".period-name").html(sessionNames[Number(sessionNow)]);
-  }
-  currentSeconds--;
-  hours = parseInt(currentSeconds / 3600, 10);
-  minutes = parseInt(currentSeconds / 60, 10);
-  seconds = parseInt(currentSeconds % 60, 10);
-  hours = hours == 0 ? "" : hours + ":";
-  minutes = minutes < 10 ? "0" + minutes : minutes;
-  seconds = seconds < 10 ? "0" + seconds : seconds;
-  $(".timer-value").html(hours + minutes + ":" + seconds);
-  console.log("tick");
 }
 
 function stopTimer() {
   clearInterval(pomoIntervalId);
 }
 
-$(document).ready(function() {
-  currentSeconds = sessionNow ? sessionLength * 60 : breakLength * 60;
-  $(".break-value").html(breakLength);
-  $(".session-value").html(sessionLength);
-  $(".period-name").html(sessionNames[Number(sessionNow)]);
-  $(".timer-value").html(sessionLength + ":00");
+function decreaseTimer() {
+  if (currentSeconds <= 0) {
+    currentSeconds = sessionNow ? brkSessArr[0] * 60 : brkSessArr[1] * 60;
+    sessionNow = !sessionNow;
+    $(".period-name").html(sessionNames[Number(sessionNow)]);
+  } else {
+    currentSeconds--;
+  }
+  $(".timer-value").html(clockStyle(currentSeconds));
+}
 
-  $("#break-minus").click(function() {
-    console.log("cococo");
-    breakLength = breakLength <= 0 ? 0 : breakLength - 1;
-    console.log(breakLength);
-    $(".break-value").html(breakLength);
-  });
-  $("#break-plus").click(function() {
-    breakLength = breakLength >= 1440 ? 1440 : breakLength + 1;
-    $(".break-value").html(breakLength);
-  });
-  $("#session-minus").click(function() {
-    sessionLength = sessionLength <= 0 ? 0 : sessionLength - 1;
-    $(".session-value").html(sessionLength);
-  });
-  $("#session-plus").click(function() {
-    sessionLength = sessionLength >= 1440 ? 1440 : sessionLength + 1;
-    $(".session-value").html(sessionLength);
+function buttonHandler(item) {
+  var period = item.parent().attr("id");
+  var arrPos = period == "break" ? 0 : 1;
+  if (clockIsRunning && sessionNow == arrPos) {
+    stopTimer();
+    clockIsRunning = false;
+  }
+  if (item.attr("class") == "minus") {
+    brkSessArr[arrPos] = brkSessArr[arrPos] <= 0 ? 0 : brkSessArr[arrPos] - 1;
+    $("#" + period + "> span").html(brkSessArr[arrPos]);
+    if (sessionNow == arrPos) {
+      currentSeconds = brkSessArr[arrPos] * 60;
+      $(".timer-value").html(clockStyle(currentSeconds));
+    }
+  } else {
+    brkSessArr[arrPos] = brkSessArr[arrPos] >= 1440 ? 1440 : brkSessArr[arrPos] + 1;
+    $("#" + period + "> span").html(brkSessArr[arrPos]);
+    if (sessionNow == arrPos) {
+      currentSeconds = brkSessArr[arrPos] * 60;
+      $(".timer-value").html(clockStyle(currentSeconds));
+    }
+  }
+}
+
+$(document).ready(function() {
+  currentSeconds = sessionNow ? brkSessArr[1] * 60 : brkSessArr[0] * 60;
+  $(".break-value").html(brkSessArr[0]);
+  $(".session-value").html(brkSessArr[1]);
+  $(".period-name").html(sessionNames[Number(sessionNow)]);
+  $(".timer-value").html(clockStyle(brkSessArr[Number(sessionNow)] * 60));
+
+  $("button").click(function() {
+    buttonHandler($(this));
   });
 
   $(".clock").click(function() {
