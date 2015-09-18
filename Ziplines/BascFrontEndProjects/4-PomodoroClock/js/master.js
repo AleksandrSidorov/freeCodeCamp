@@ -12,7 +12,6 @@ function resetPom() {
   sessionNow = true;
   brkSessArr = [5, 25];
   currentSeconds = brkSessArr[Number(sessionNow)] * 60;
-  console.log(currentSeconds);
   $(".break-value").html(brkSessArr[0]);
   $(".session-value").html(brkSessArr[1]);
   $(".period-name").html(sessionNames[Number(sessionNow)]);
@@ -57,7 +56,7 @@ function buttonHandler(item) {
     clockIsRunning = false;
   }
   brkSessArr[arrPos] = brkSessArr[arrPos] + adder < 0 || brkSessArr[arrPos] + adder > 1440 ? brkSessArr[arrPos] : brkSessArr[arrPos] + adder;
-  $("#" + period + "> span").html(brkSessArr[arrPos]);
+  $("#" + period + "> div > span").html(brkSessArr[arrPos]);
   if (sessionNow == arrPos) {
     currentSeconds = brkSessArr[arrPos] * 60;
     $(".timer-value").html(clockStyle(currentSeconds));

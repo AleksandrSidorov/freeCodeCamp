@@ -1,18 +1,22 @@
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 <link rel="stylesheet" href="css/master.css">
+<link href="https://fonts.googleapis.com/css?family=Pacifico">
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed">
 
 <h1>Pomodoro Clock</h1>
 
 <div class="container">
-  <div class="alarm-counter">
-    <button id="break-minus" type="button" name="breakminus">-</button>
-    <span class="break-value"></span>
-    <button id="break-plus" type="button" name="breakplus">+</button>
+  <div id="break" class="alarm-counter">
+    <p>Break length</p>
+    <button id="break-minus" class="minus" type="button" name="breakminus">-</button>
+    <div class="value-container"><span class="break-value"></span></div>
+    <button id="break-plus" class="plus" type="button" name="breakplus">+</button>
   </div>
-  <div class="alarm-counter">
-    <button id="session-minus" type="button" name="sessionminus">-</button>
-    <span class="session-value"></span>
-    <button id="sessin-plus" type="button" name="sessionplus">+</button>
+  <div id="session" class="alarm-counter">
+    <p>Session Length</p>
+    <button id="session-minus" class="minus" type="button" name="sessionminus">-</button>
+    <div class="value-container"><span class="session-value"></span></div>
+    <button id="sessin-plus" class="plus" type="button" name="sessionplus">+</button>
   </div>
 </div>
 
@@ -22,5 +26,6 @@
     <span class="timer-value"></span>
   </div>
 </div>
+<button class="reset">Reset</button></br>
 
 <script type="text/javascript" src="js/master.js"></script>
