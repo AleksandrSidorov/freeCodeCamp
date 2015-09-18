@@ -4,6 +4,21 @@ var sessionNames = ['Break', 'Session'];
 var brkSessArr = [5, 25];
 var pomoIntervalId, currentSeconds, hours, minutes, seconds;
 
+function resetPom() {
+  if (clockIsRunning) {
+    stopTimer();
+    clockIsRunning = false;
+  }
+  sessionNow = true;
+  brkSessArr = [5, 25];
+  currentSeconds = brkSessArr[Number(sessionNow)] * 60;
+  console.log(currentSeconds);
+  $(".break-value").html(brkSessArr[0]);
+  $(".session-value").html(brkSessArr[1]);
+  $(".period-name").html(sessionNames[Number(sessionNow)]);
+  $(".timer-value").html(clockStyle(brkSessArr[Number(sessionNow)] * 60));
+}
+
 function clockStyle(secVal) {
   hrs = parseInt(secVal / 3600, 10);
   min = parseInt(secVal / 60, 10);
@@ -50,13 +65,13 @@ function buttonHandler(item) {
 }
 
 $(document).ready(function() {
-  currentSeconds = sessionNow ? brkSessArr[1] * 60 : brkSessArr[0] * 60;
-  $(".break-value").html(brkSessArr[0]);
-  $(".session-value").html(brkSessArr[1]);
-  $(".period-name").html(sessionNames[Number(sessionNow)]);
-  $(".timer-value").html(clockStyle(brkSessArr[Number(sessionNow)] * 60));
+  resetPom();
 
-  $("button").click(function() {
+  $(".reset").click(function() {
+    resetPom();
+  });
+
+  $(".alarm-counter > button").click(function() {
     buttonHandler($(this));
   });
 
