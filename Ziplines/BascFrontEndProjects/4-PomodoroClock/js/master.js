@@ -1,8 +1,10 @@
 var clockIsRunning = false;
 var sessionNow = true;
 var sessionNames = ['Break', 'Session'];
-var brkSessArr = [5, 25];
-var pomoIntervalId, currentSeconds, hours, minutes, seconds;
+var sessionBackground = ['#86BA90', '#DE291C'];
+var sessionIcon = ['fa fa-play', 'fa fa-pause'];
+var brkSessArr = [];
+var pomoIntervalId, currentSeconds, hours, minutes, seconds, upNumber, fillPercent;
 
 function resetPom() {
   if (clockIsRunning) {
@@ -14,8 +16,11 @@ function resetPom() {
   currentSeconds = brkSessArr[Number(sessionNow)] * 60;
   $(".break-value").html(brkSessArr[0]);
   $(".session-value").html(brkSessArr[1]);
+  setIconStyle();
   $(".period-name").html(sessionNames[Number(sessionNow)]);
   $(".timer-value").html(clockStyle(brkSessArr[Number(sessionNow)] * 60));
+  $(".clock-filler").css("background", "" + sessionBackground[Number(sessionNow)]);
+  setClockFiller();
 }
 
 function clockStyle(secVal) {
@@ -28,6 +33,10 @@ function clockStyle(secVal) {
   return hrs + min + sec;
 }
 
+function setIconStyle() {
+  $("#play-icon").removeClass().addClass(sessionIcon[Number(clockIsRunning)]);
+}
+
 function startTimer() {
   pomoIntervalId = setInterval(decreaseTimer, 1000);
 }
@@ -38,13 +47,22 @@ function stopTimer() {
 
 function decreaseTimer() {
   if (currentSeconds <= 0) {
-    currentSeconds = sessionNow ? brkSessArr[0] * 60 : brkSessArr[1] * 60;
     sessionNow = !sessionNow;
+    currentSeconds = brkSessArr[Number(sessionNow)] * 60;
     $(".period-name").html(sessionNames[Number(sessionNow)]);
   } else {
     currentSeconds--;
   }
+  setClockFiller();
   $(".timer-value").html(clockStyle(currentSeconds));
+}
+
+function setClockFiller() {
+  upNumber = brkSessArr[Number(sessionNow)] * 60;
+  fillPercent = upNumber === 0 ? 0 : Math.round((upNumber - currentSeconds) / upNumber * 100);
+  $(".clock-filler").css("height", fillPercent + "%");
+  $(".clock-filler").css("background", sessionBackground[Number(sessionNow)]);
+
 }
 
 function buttonHandler(item) {
@@ -61,6 +79,8 @@ function buttonHandler(item) {
     currentSeconds = brkSessArr[arrPos] * 60;
     $(".timer-value").html(clockStyle(currentSeconds));
   }
+  setIconStyle();
+  setClockFiller();
 }
 
 $(document).ready(function() {
@@ -78,9 +98,11 @@ $(document).ready(function() {
     if (clockIsRunning) {
       stopTimer();
       clockIsRunning = false;
+      setIconStyle();
     } else {
       startTimer();
       clockIsRunning = true;
+      setIconStyle();
     };
   });
 });
