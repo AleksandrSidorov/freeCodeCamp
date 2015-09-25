@@ -1,0 +1,123 @@
+* {
+  font-family: 'Catamaran', sans-serif;
+}
+
+body {
+  background-color: #F7F7F2;
+}
+
+.purple {
+  color: #FFC15E;
+}
+
+.green {
+  color: #98C38A;
+}
+
+.red {
+  color: #EA526F;
+}
+
+.container {
+  align: center;
+  background-color: #121113;
+  margin: 0 auto;
+  width: 350px;
+}
+
+button {
+  margin: 0;
+  background-color: #121113;
+  border-width: 0;
+  color: #E4E6C3;
+  font-size: 30px;
+  outline: none;
+  padding: 8px 24px;
+}
+
+button:hover {
+  background-color: #899878;
+}
+
+.active-button {
+  background-color: #222725;
+}
+
+.search-input {
+  background-color: #222725;
+  position: relative;
+  margin: 0;
+  padding: 10px;
+}
+
+input {
+  border-color: #121113;
+  border-radius: 30px;
+  border-width: 1px;
+  border-style: solid;
+  height: 30px;
+  outline: none;
+  padding-left: 40px;
+  width: 87%;
+}
+
+#fa-search {
+  position: absolute;
+  z-index: 50;
+  padding-top: 9px;
+  left: 25px;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  background-color: #222725;
+  display: block;
+  list-style: none;
+  margin-bottom: 10px;
+  padding: 7px;
+  position: relative;
+}
+
+li:hover {
+  background-color: #899878;
+}
+
+li img {
+  vertical-align: bottom;
+  height: 60px;
+  width: 60px;
+  margin: 0;
+  padding: 0;
+}
+
+.ch-name {
+  font-size: 21px;
+  color: #E4E6C3;
+  left: 80px;
+  position: absolute;
+}
+
+.ch-status {
+  color: #899878;
+  font-size: 12px;
+  left: 80px;
+  line-height: 90%;
+  position: absolute;
+  right: 30px;
+  top: 40px;
+}
+
+li i {
+  float: right;
+  padding: 24px 6px;
+  vertical-align: center;
+}

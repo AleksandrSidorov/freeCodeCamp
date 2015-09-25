@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/main.css">
 
-<div class="menu">
-<button type="button" name="all" id="all">All</button>
-<button type="button" name="online" id="online">Online</button>
-<button type="button" name="offline" id="offline">Offline</button>
+<div class="container">
+  <div class="menu">
+    <button type="button" name="all" id="all" class="active-button">All</button>
+    <button type="button" name="online" id="online">Online</button>
+    <button type="button" name="offline" id="offline">Offline</button>
+  </div>
+  <div class="search-input">
+    <i id="fa-search" class="fa fa-search fa-lg"></i>
+    <input type="text" name="search" id="search">
+  </div>
+  <ul class="ch-list">
+  </ul>
 </div>
-<input type="text" name="search" id="search">
-<ul class="ch-list">
-</ul>
+
 <script src="js/main.js"></script>
