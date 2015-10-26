@@ -1,0 +1,246 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-top: 0;
+  padding: 60px 0 15px 0;
+}
+
+.container {
+  max-width: 940px;
+  margin: 0 auto;
+  padding: 0 10px;
+}
+
+/* -- Navigation Menu -- */
+nav {
+  background-color: #333;
+  opacity: .95;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1050;
+}
+
+nav ul {
+  float: right;
+  margin: 0;
+  padding: 20px 0;
+}
+
+nav li {
+  color: #fff;
+  display: inline;
+  font-size: 18px;
+  font-weight: 600;
+  padding-right: 18px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav a {
+  text-decoration: none;
+  color: #f90;
+  transition: coror .3s;
+}
+
+nav a:hover {
+	color: #fff;
+	cursor: pointer;
+	transition: color .3s;
+
+}
+
+/* -- Home Jumbotron -- */
+.jumbotorn {
+  background: url(//drive.google.com/uc?export=download&id=0B41DdgPqKzCaSnlDbHJZNlpPZ2M) no-repeat center center fixed;
+  background-size: cover;
+  height: 750px;
+}
+
+.main {
+  position: relative;
+  text-align: center;
+  top: 220px;
+}
+
+.main h1 {
+  font-size: 70px;
+  font-weight: 800;
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.main p {
+  font-size: 30px;
+}
+
+.main .btn {
+  background-color: #333;
+  color: #fff;
+  font-size: 22px;
+  text-decoration: none;
+  transition: background .3s;
+  padding: 15px 40px;
+}
+
+.main .btn:hover {
+  background: #f90;
+  transition: background .3s;
+}
+
+/* -- About Section -- */
+.about .container {
+  padding: 60px 0;
+}
+
+.about {
+  background-color: #fff;
+}
+
+.about h2 {
+  color: #333;
+}
+
+.about p {
+  color: #333;
+}
+
+.about img {
+  border-radius: 50%;
+  float: left;
+  margin: 60px 40px;
+}
+
+.about-text {
+  margin: 0;
+  overflow: hidden;
+  padding: 0 10px;
+}
+
+/* -- Portfolio Section -- */
+.portfolio {
+  background: url(//drive.google.com/uc?export=download&id=0B41DdgPqKzCaa1BHMmNrcGRKeVE) no-repeat center center;
+  padding-bottom: 30px;
+}
+
+.portfolio .container {
+  padding-top: 30px;
+  text-align: center;
+}
+
+.portfolio-img {
+  width: 100%;
+  overflow: hidden;
+}
+
+.portfolio-img img {
+  width: 100%;
+}
+
+.portfolio h3 {
+  font-size: 20px;
+  letter-spacing: 1px;
+  margin: 0;
+  padding: 10px 0 5px 0;
+}
+
+.portfolio .float-box {
+  background-color: #fff;
+  color: #000;
+  display: inline-block;
+  margin: 20px;
+  padding: 20px;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+  vertical-align: top;
+  width: 23%;
+}
+
+.float-box:hover{
+    transform:scale(1.1);
+}
+
+/* -- Contact Info -- */
+.contact {
+  background-color: #fff;
+  padding-bottom: 20px;
+}
+
+.contact .container {
+  text-align: center;
+}
+
+.contact h2 {
+  margin-top: 0;
+}
+
+.contact a {
+  background-color: #fff;
+  color: #333;
+  display:inline-block;
+  margin: 20px;
+  padding: 20px;
+  text-decoration: none;
+  transition: all .3s ease-in-out;
+  vertical-align:top;
+  width: 50px;
+}
+
+.contact a:hover {
+  transform: scale(1.1);
+  color: #f90;
+}
+
+/* -- Footer -- */
+footer {
+  background-color: #333;
+}
+
+footer ul {
+  margin: 0;
+  padding: 20px 0;
+}
+
+footer li {
+  color: #fff;
+  display: inline;
+  padding-right: 5px;
+  text-transform: uppercase;
+}
+
+footer p {
+  color: #999;
+  margin: 0;
+  padding-bottom: 20px;
+}
+
+footer a {
+  color: #f90;
+  display: inline-block;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+footer a:hover {
+	color: #fff;
+	cursor: pointer;
+	transition: color .3s;
+}
+
+@media (max-width: 600px) {
+  .main h1 {
+    font-size: 50px;
+  }
+
+  .about img {
+    float: none;
+  }
+}
