@@ -1,0 +1,69 @@
+body {
+  font-family: 'Dosis', sans-serif;
+  background: #eee;
+  margin: 0;
+}
+
+header {
+  background: #4a2b0f;
+  width: 100%;
+  padding: 10px;
+
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+}
+
+header h2 {
+  color: #fff;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header h2 a {
+  color: #fff;
+}
+#news-list {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#the-news {
+  background: #fff;
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  box-shadow: 1px 2px 4px 1px rgba(0, 0, 0, 0.1);
+  width: 210px;
+  margin: 10px;
+}
+
+#inner-box {
+  padding: 10px;
+}
+
+#stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  position: relative;
+  width: 100%;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+a {
+  text-decoration: none;
+  color: #215f1e;
+}
+
+a:hover {
+  text-decoration: underline;
+}
