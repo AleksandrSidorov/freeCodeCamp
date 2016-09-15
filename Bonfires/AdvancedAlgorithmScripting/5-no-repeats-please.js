@@ -14,6 +14,9 @@ function permAlone(str) {
   var result = 0;
   var myRe = /(\w)\1/i;
 
+  permArr = [];
+  usedChars = [];
+
   var arrPerm = permute(str);
 
   for (var i = 0; i < arrPerm.length; i++) {
